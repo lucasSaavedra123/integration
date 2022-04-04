@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <omp.h>
 
-double integrate(double (*math_function)(double), double, double, int);
-double finitesimal_area(double (*math_function)(double), double, double);
-double sequential_integrate(double (*math_function)(double), double, double, int);
+double integrate(double (*)(double), double, double, int);
+double finitesimal_area(double (*)(double), double, double);
+double sequential_integrate(double (*)(double), double, double, int);
 
 
 double sequential_integrate(double (*math_function)(double), double xi, double xf, int number_of_steps){

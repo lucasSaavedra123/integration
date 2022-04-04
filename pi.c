@@ -4,24 +4,20 @@
 #include "integrate.h"
 
 
-double a_function(double x){
-    double a = x * x;
-    double b = 1;
-    double c = b - a;
-
-    return 4 * sqrt(c);
+double math_function(double x){
+    return 4 * sqrt(1 - (x*x));
 }
 
 int main(){
     double time_one, time_two, sequential_time, parallel_time, sequential_result, parallel_result;
 
     time_one = omp_get_wtime();
-    sequential_result = sequential_integrate(a_function, 0, 1, 1000000000);
+    sequential_result = sequential_integrate(math_function, 0, 1, 1000000000);
     time_two = omp_get_wtime();
     sequential_time = time_two - time_one;
 
     time_one = omp_get_wtime();
-    parallel_result = integrate(a_function, 0, 1, 1000000000);
+    parallel_result = integrate(math_function, 0, 1, 1000000000);
     time_two = omp_get_wtime();
     parallel_time = time_two - time_one;
 

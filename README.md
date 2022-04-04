@@ -1,4 +1,4 @@
-# integration
+# Integration
 Simple C library to integrate functions fast
 
     $gcc pi.c -lm -fopenmp
